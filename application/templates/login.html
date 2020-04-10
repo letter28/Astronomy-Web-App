@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="login-page">
+    <div class="login container">
+        <h2>Login</h2>
+        <form class="form" name="login" action="" method="post" novalidate>
+            <fieldset>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=35) }}
+                </p>
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=35) }}
+                </p>
+                <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+                <p>{{ form.submit(class="btn-submit") }}</p>
+            </fieldset>
+        </form>
+    </div>
+</section>
+ {% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A web application for astronomy, explore star, planet and moon data.">
+        <meta name="theme-color" content="#F4f4f4">
+        {% if title %}
+          <title>{{ title }}</title>
+        {% else %}
+          <title>Astronomy Web App</title>
+        {% endif %}
+        <link rel="stylesheet" href="static/css/main.css"/>
+    </head>
+    <body>
+        {% include "nav.html" %}
+
+        <div class="main-page-container">
+            <h1 class="main-page-item">Astronomy web application</h1>
+            <p class="main-page-item">Explore the database for stars, planets and their moons. Add new ones, and see the stats about existing
+               planetary bodies.</p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, msg in messages %}
+                    <div class="alert-{{category}}">
+                        <p>{{ msg }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+
+        {% endblock %}
+    </body>
+    {% include "footer.html" %}
+</html>

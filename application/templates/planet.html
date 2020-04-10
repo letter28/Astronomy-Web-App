@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="../static/css/main.css"/>
+<section class="planet-page">
+    <section class="planet container">
+        <div class="planet-container">
+            <h3>{{ planet.planet_name }}</h3>
+            <img class="img-small" src="../static/images/{{ planet.planet_name }}.jpg" alt="{{ planet.planet_name }}">
+        </div>
+        <div class="planet-info">
+            <p>Home star:                   {{ planet.home_star }}</p>
+            <p>Distance from home star:     {{ planet.distance }} km</p>
+            <p>Diameter:                    {{ planet.diameter }} km</p>
+            <p>Mass:                        {{ planet.mass }} kg</p>
+            <p>Number of moons:             {{ planet.no_of_moons }}</p>
+            <p>Orbital period:              {{ planet.orbital_period }} days</p>
+        </div>
+    </section>
+</section>
+{% endblock %}

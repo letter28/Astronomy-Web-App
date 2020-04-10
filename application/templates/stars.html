@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="stars-page">
+    <section class="stars container">
+        <div class="stars-container">
+            <h2>Stars in the database:</h2>
+            <table>
+                <tr>
+                    <th>Star id</th>
+                    <th>Star name</th>
+                    <th>Location</th>
+                    <th>Diameter [km]</th>
+                    <th>Mass [kg]</th>
+                    <th>Absolute magnitude</th>
+                </tr>
+                {% for star in star_data %}
+                <tr>
+                    <td>{{ star.star_id }}</td>
+                    <td><a class="planetary-body" href="">{{ star.star_name }}</a></td>
+                    <td>{{ star.location }}</td>
+                    <td>{{ star.diameter }}</td>
+                    <td>{{ star.mass }}</td>
+                    <td>{{ star.abs_magnitude }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="stars-info">
+            <img src="static/images/sun_eruption_2.jpg" alt="Sun eruption">
+            <p>Info about stars.</p>
+        </div>
+    </section>
+</section>
+{% endblock %}

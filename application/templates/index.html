@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="home-page">
+    <div class="home container">
+        {% if current_user.is_authenticated %}
+        <h3>Let's get started.</h3>
+        <h4><a href="{{ url_for('add_planet') }}">Add a new planet</a></h4>
+        <h4><a href="">Add a new star</a></h4>
+
+        {% else %}
+        <h3>Already registered? <a href="{{ url_for('login') }}">Sign In</a></h3>
+        <h3>Not registered? <a href="{{ url_for('register') }}">New User</a></h3>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

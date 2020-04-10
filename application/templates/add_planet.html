@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="new-planet-page">
+    <div class="new-planet container">
+        <h2>Add a new planet</h2>
+        <form class="form" name="add-planet" action="" method="post" novalidate>
+            <fieldset>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.planet_name.label }}<br>
+                    {{ form.planet_name(size=35) }}
+                    {% for error in form.planet_name.errors %}
+                        <span style="color: #a1140a;">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.home_star.label }}<br>
+                    {{ form.home_star(size=35) }}
+                    {% for error in form.home_star.errors %}
+                        <span style="color: #a1140a;">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.distance.label }}<br>
+                    {{ form.distance(size=35) }}
+                    {% for error in form.distance.errors %}
+                        <span style="color: #a1140a;">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.mass.label }}<br>
+                    {{ form.mass(size=35) }}
+                    {% for error in form.mass.errors %}
+                        <span style="color: #a1140a;">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.diameter.label }}<br>
+                    {{ form.diameter(size=35) }}
+                    {% for error in form.diameter.errors %}
+                        <span style="color: #a1140a;">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.no_of_moons.label }}<br>
+                    {{ form.no_of_moons(size=35) }}
+                    {% for error in form.no_of_moons.errors %}
+                        <span style="color: #a1140a;">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.orbital_period.label }}<br>
+                    {{ form.orbital_period(size=35) }}
+                    {% for error in form.orbital_period.errors %}
+                        <span style="color: #a1140a;">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.submit(class="btn-submit") }}
+                </p>
+            </fieldset>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

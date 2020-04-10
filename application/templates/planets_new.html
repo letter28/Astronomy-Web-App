@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="planets-page">
+    <div class="planets container">
+    <h2>Planets in the database:</h2>
+    <div class="planets-table">
+        <table>
+            <tr>
+                <th>Planet id</th>
+                <th>Planet name</th>
+                <th>Home star</th>
+                <th>Distance [km]</th>
+                <th>Diameter [km]</th>
+                <th>Mass [kg]</th>
+                <th>No. of moons</th>
+                <th>Orbital period [days]</th>
+            </tr>
+            {% for planet in planet_data %}
+            <tr>
+                <td>{{ planet.planet_id }}</td>
+                <td><a href="/planet/{{ planet.planet_id }}">{{ planet.planet_name }}</a></td>
+                <td>{{ planet.home_star }}</td>
+                <td>{{ planet.distance }}</td>
+                <td>{{ planet.diameter }}</td>
+                <td>{{ planet.mass }}</td>
+                <td>{{ planet.no_of_moons }}</td>
+                <td>{{ planet.orbital_period }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</section>
+{% endblock %}

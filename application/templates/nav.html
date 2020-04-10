@@ -1,0 +1,33 @@
+<header>
+    <nav role="navigation">
+        <ul class="top-container">
+            <li class="nav-icon">
+                <img src="static/images/sun_icon4.jpg" alt="sun-icon">
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('index') }}" class="nav-link {% if index %} active {% endif %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('stars') }}" class="nav-link {% if stars %} active {% endif %}">Stars</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('planets') }}" class="nav-link {% if planets %} active {% endif %}">Planets</a>
+            </li>
+            <li class="nav-item">
+                {% if current_user.is_anonymous %}
+                <a href="{{ url_for('register') }}" class="nav-link {% if register %} active {% endif %}">Register</a>
+                {% else %}
+                {% set user = current_user %}
+                <a href="/account/{{ user.user_name }}" class="nav-link {% if account %} active {% endif %}">Account</a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}" class="nav-link {% if login %} active {% endif %}">Login</a>
+                {% else %}
+                <a href="{{ url_for('logout') }}" class="nav-link {% if login %} active {% endif %}">Logout</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+</header>
